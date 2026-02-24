@@ -1,0 +1,48 @@
+<div class="login-page">
+  <div class="login-card">
+    <h1>ps-lib Demo Login</h1>
+    <p class="subtitle">Welcome to the ps-lib Demo App</p>
+
+    <div class="form-fields">
+      <ps-text-field
+        label="Username"
+        placeholder="Enter your username"
+        [value]="username"
+        (valueChange)="onUsernameChange($event)"
+      />
+
+      <ps-text-field
+        label="Password"
+        placeholder="Enter your password"
+        type="password"
+        [value]="password"
+        (valueChange)="onPasswordChange($event)"
+      />
+    </div>
+
+    <div class="login-actions">
+      <ps-button
+        variant="filled"
+        label="Sign In"
+        (onClick)="onLogin()"
+      />
+    </div>
+  </div>
+</div>
+
+@if (showErrorDialog) {
+  <div class="dialog-overlay" (click)="closeDialog()">
+    <div class="dialog-container" (click)="$event.stopPropagation()">
+      <ps-dialog
+        title="Login Error"
+        [supportingText]="errorMessage"
+        [showIcon]="true"
+        [showDivider]="true"
+        action1Label="OK"
+        action2Label="Dismiss"
+        (action1Click)="closeDialog()"
+        (action2Click)="closeDialog()"
+      />
+    </div>
+  </div>
+}

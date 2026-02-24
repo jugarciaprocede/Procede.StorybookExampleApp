@@ -1,49 +1,10 @@
 import { Component } from '@angular/core';
-import { ButtonComponent, TextFieldComponent, DialogComponent } from '@anthropic/ps-lib';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [ButtonComponent, TextFieldComponent, DialogComponent],
-  template: `
-    <main>
-      <h1>&#64;anthropic/ps-lib — Consumer Demo</h1>
-
-      <section>
-        <h2>Button</h2>
-        <ps-button variant="filled" label="Filled" />
-        <ps-button variant="outlined" label="Outlined" />
-        <ps-button variant="text" label="Text" />
-        <ps-button variant="filled" label="With Icon" [showIcon]="true" />
-        <ps-button variant="filled" label="Disabled" [disabled]="true" />
-      </section>
-
-      <section>
-        <h2>Text Field</h2>
-        <ps-text-field label="Name" placeholder="Enter your name" />
-        <ps-text-field label="Error State" [error]="true" errorMessage="Required field" />
-        <ps-text-field label="Disabled" [disabled]="true" value="Can't edit" />
-      </section>
-
-      <section>
-        <h2>Dialog</h2>
-        <ps-dialog
-          title="Example Dialog"
-          supportingText="This dialog component comes from the @anthropic/ps-lib package."
-          [showIcon]="true"
-          [showDivider]="true"
-          action1Label="Cancel"
-          action2Label="Confirm"
-        />
-      </section>
-    </main>
-  `,
-  styles: `
-    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    section { margin-bottom: 2rem; }
-    h1 { color: var(--mat-sys-primary); }
-    h2 { color: var(--mat-sys-on-surface-variant); margin-bottom: 1rem; }
-    ps-button { margin-right: 0.5rem; }
-    ps-text-field { display: block; margin-bottom: 1rem; max-width: 400px; }
-  `
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class App {}
